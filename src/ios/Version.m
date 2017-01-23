@@ -21,10 +21,10 @@
     NSString* appName = [[[NSBundle mainBundle]infoDictionary]objectForKey :@"CFBundleDisplayName"];
     // Build result object
     NSMutableDictionary* returnInfo = [NSMutableDictionary dictionaryWithCapacity:4];
-    [returnInfo setObject:[NSString*:appName] forKey:@"appName"];
-    [returnInfo setObject:[NSString*:packageName] forKey:@"packageName"];
-    [returnInfo setObject:[NSString*:versionNumber] forKey:@"versionNumber"];
-    [returnInfo setObject:[NSString*:versionCode] forKey:@"versionCode"];
+    [returnInfo setObject:[messageAsString:appName] forKey:@"appName"];
+    [returnInfo setObject:[messageAsString:packageName] forKey:@"packageName"];
+    [returnInfo setObject:[messageAsString:versionNumber] forKey:@"versionNumber"];
+    [returnInfo setObject:[messageAsString:versionCode] forKey:@"versionCode"];
     // Give it back to the Javascript
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnInfo];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
