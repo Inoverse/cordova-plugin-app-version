@@ -68,5 +68,5 @@ Version.prototype.getInfos = function (successCallback, errorCallback) {
     exec(successCallback, errorCallback, "Version", "getInfos", []);
 };
 
-module.exports = new Device();
+module.exports = new Version();
 0
