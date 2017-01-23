@@ -15,57 +15,17 @@
        <clobbers target="cordova.version" />
     </js-module>
 
-    <!-- android -->
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="AppVersion">
-                <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion"/>
-            </feature>
-        </config-file>
-        <source-file src="src/android/AppVersion.java" target-dir="src/uk/co/whiteoctober/cordova" />
-    </platform>
-
-    <!-- blackberry10 -->
-    <platform name="blackberry10">
-        <dependency id="cordova-plugin-bb-app" />
-
-        <config-file target="www/config.xml" parent="/widget">
-            <feature name="AppVersion" value="AppVersion" />
-        </config-file>
-        <js-module src="www/blackberry10/AppVersionProxy.js" name="AppVersionProxy.js" >
-            <runs />
-        </js-module>
-    </platform>
-
     <!-- ios -->
     <platform name="ios">
-        <plugins-plist key="AppVersion" string="AppVersion" />
+        <plugins-plist key="Version" string="Version" />
 
         <config-file target="config.xml" parent="/*">
-            <feature name="AppVersion">
-                <param name="ios-package" value="AppVersion" />
+            <feature name="Version">
+                <param name="ios-package" value="Version" />
             </feature>
         </config-file>
 
-        <header-file src="src/ios/AppVersion.h" />
-        <source-file src="src/ios/AppVersion.m" />
-    </platform>
-
-    <!-- windows8 -->
-    <platform name="windows">
-        <js-module src="src/windows/AppVersionProxy.js" name="AppVersionProxy">
-            <merges target=""/>
-        </js-module>
-    </platform>
-
-    <!-- wp8 -->
-    <platform name="wp8">
-        <config-file target="config.xml" parent="/*">
-            <feature name="AppVersion">
-                <param name="wp-package" value="AppVersion"/>
-            </feature>
-        </config-file>
-
-        <source-file src="src/wp8/AppVersion.cs" />
+        <header-file src="src/ios/Version.h" />
+        <source-file src="src/ios/Version.m" />
     </platform>
 </plugin>

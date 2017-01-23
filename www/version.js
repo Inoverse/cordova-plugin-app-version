@@ -34,31 +34,23 @@ channel.waitForInitialization('onCordovaInfoReady');
  * phone, etc.
  * @constructor
  */
-function Device() {
-    this.appVersion = '';
+function Version() {
     this.appName = '';
     this.packageName = '';
     this.versionNumber = '';
     this.versionCode = '';
-    
+
     var me = this;
 
-    channel.onCordovaReady.subscribe(function() {
-        me.getInfo(function(info) {
-            //ignoring info.cordova returning from native, we should use value from cordova.version defined in cordova.js
-            //TODO: CB-5105 native implementations should not return info.cordova
-            var buildLabel = cordova.version;
+    channel.onCordovaReady.subscribe(function () {
+        me.getInfos(function (info) {
+            me.appName = info.appName;
+            me.packageName = info.packageName;
+            me.versionNumber = info.versionNumber;
+            me.versionCode = info.versionCode;
             me.available = true;
-            me.platform = info.platform;
-            me.version = info.version;
-            me.uuid = info.uuid;
-            me.cordova = buildLabel;
-            me.model = info.model;
-            me.isVirtual = info.isVirtual;
-            me.manufacturer = info.manufacturer || 'unknown';
-            me.serial = info.serial || 'unknown';
             channel.onCordovaInfoReady.fire();
-        },function(e) {
+        }, function (e) {
             me.available = false;
             utils.alert("[ERROR] Error initializing Cordova: " + e);
         });
@@ -71,9 +63,9 @@ function Device() {
  * @param {Function} successCallback The function to call when the heading data is available
  * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
  */
-Device.prototype.getInfo = function(successCallback, errorCallback) {
-    argscheck.checkArgs('fF', 'Device.getInfo', arguments);
-    exec(successCallback, errorCallback, "Device", "getDeviceInfo", []);
+Version.prototype.getInfos = function (successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Version.getInfos', arguments);
+    exec(successCallback, errorCallback, "Version", "getInfos", []);
 };
 
 module.exports = new Device();

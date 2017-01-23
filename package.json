@@ -1,13 +1,13 @@
 {
-  "name": "cordova-plugin-app-version",
-  "version": "0.1.9",
+  "name": "cordova-plugin-version",
+  "version": "0.0.1",
   "description": "Cordova plugin to return the version number of the current app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git"
+    "url": "git+https://github.com/inoverse/cordova-plugin-app-version.git"
   },
   "keywords": [
     "cordova",
@@ -17,10 +17,10 @@
     "appversion",
     "plugin"
   ],
-  "author": "whiteoctober",
+  "author": "Aaron Czichon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whiteoctober/cordova-plugin-app-version/issues"
+    "url": "https://github.com/inoverse/cordova-plugin-app-version/issues"
   },
-  "homepage": "https://github.com/whiteoctober/cordova-plugin-app-version#readme"
+  "homepage": "https://github.com/inoverse/cordova-plugin-app-version#readme"
 }
